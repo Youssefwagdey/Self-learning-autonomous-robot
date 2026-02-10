@@ -1,0 +1,98 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">
+    Robot Control System Architecture
+  </text>
+  
+  <!-- Sensors Input Group -->
+  <rect x="50" y="80" width="250" height="180" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="5,5" rx="10"/>
+  <text x="175" y="105" font-size="16" font-weight="bold" text-anchor="middle" fill="#666">Sensors Input</text>
+  
+  <!-- LiDAR Sensor -->
+  <rect x="80" y="130" width="180" height="50" fill="#dfd" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="170" y="160" font-size="14" text-anchor="middle" fill="#333">LiDAR Sensor</text>
+  
+  <!-- Ultrasonic Sensor -->
+  <rect x="80" y="195" width="180" height="50" fill="#fff" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="170" y="225" font-size="14" text-anchor="middle" fill="#333">Ultrasonic Sensor</text>
+  
+  <!-- Logic Processing Group -->
+  <rect x="320" y="80" width="200" height="280" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="5,5" rx="10"/>
+  <text x="420" y="105" font-size="16" font-weight="bold" text-anchor="middle" fill="#666">Logic Processing</text>
+  
+  <!-- ESP32 Brain -->
+  <rect x="345" y="140" width="150" height="60" fill="#f96" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="420" y="165" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">ESP32</text>
+  <text x="420" y="185" font-size="12" text-anchor="middle" fill="#333">Brain</text>
+  
+  <!-- Serial Communication -->
+  <circle cx="420" cy="280" r="40" fill="#ffe" stroke="#333" stroke-width="2"/>
+  <text x="420" y="275" font-size="12" text-anchor="middle" fill="#333">Serial</text>
+  <text x="420" y="290" font-size="12" text-anchor="middle" fill="#333">Communication</text>
+  
+  <!-- Actuators Output Group -->
+  <rect x="540" y="80" width="240" height="380" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="5,5" rx="10"/>
+  <text x="660" y="105" font-size="16" font-weight="bold" text-anchor="middle" fill="#666">Actuators Output</text>
+  
+  <!-- Arduino Mega -->
+  <rect x="570" y="140" width="180" height="60" fill="#69f" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="660" y="165" font-size="14" font-weight="bold" text-anchor="middle" fill="#fff">Arduino Mega</text>
+  <text x="660" y="185" font-size="12" text-anchor="middle" fill="#fff">Muscle</text>
+  
+  <!-- Motor Driver L298N -->
+  <rect x="570" y="240" width="180" height="50" fill="#ffd" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="660" y="260" font-size="12" text-anchor="middle" fill="#333">Motor Driver</text>
+  <text x="660" y="275" font-size="12" text-anchor="middle" fill="#333">L298N</text>
+  
+  <!-- DC Motor Left -->
+  <rect x="570" y="330" width="180" height="50" fill="#eee" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="660" y="360" font-size="14" text-anchor="middle" fill="#333">DC Motor Left</text>
+  
+  <!-- DC Motor Right -->
+  <rect x="570" y="395" width="180" height="50" fill="#eee" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="660" y="425" font-size="14" text-anchor="middle" fill="#333">DC Motor Right</text>
+  
+  <!-- Arrows -->
+  <!-- LiDAR to ESP32 -->
+  <path d="M 260 155 L 345 165" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Ultrasonic to ESP32 -->
+  <path d="M 260 220 L 345 185" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- ESP32 to Serial -->
+  <path d="M 420 200 L 420 240" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="450" y="225" font-size="11" fill="#555">Decision Making</text>
+  
+  <!-- Serial to Arduino -->
+  <path d="M 460 280 L 570 170" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arduino to Motor Driver -->
+  <path d="M 660 200 L 660 240" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Motor Driver to Left Motor -->
+  <path d="M 660 290 L 660 330" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Motor Driver to Right Motor -->
+  <path d="M 660 290 L 660 395" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Legend -->
+  <text x="50" y="520" font-size="14" font-weight="bold" fill="#333">Legend:</text>
+  <rect x="50" y="530" width="30" height="20" fill="#f96" stroke="#333" stroke-width="1"/>
+  <text x="90" y="545" font-size="12" fill="#333">Processing Unit</text>
+  
+  <rect x="200" y="530" width="30" height="20" fill="#69f" stroke="#333" stroke-width="1"/>
+  <text x="240" y="545" font-size="12" fill="#333">Control Unit</text>
+  
+  <rect x="350" y="530" width="30" height="20" fill="#dfd" stroke="#333" stroke-width="1"/>
+  <text x="390" y="545" font-size="12" fill="#333">Sensor</text>
+  
+  <rect x="480" y="530" width="30" height="20" fill="#eee" stroke="#333" stroke-width="1"/>
+  <text x="520" y="545" font-size="12" fill="#333">Actuator</text>
+</svg>
