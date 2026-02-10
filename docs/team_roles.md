@@ -1,3 +1,3 @@
-Power System → Ahmed  
-Sensors → Sara  
-Motors → Ali  
+Power System →   
+Sensors →   
+Motors →   
