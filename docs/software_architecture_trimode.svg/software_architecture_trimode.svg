@@ -1,0 +1,782 @@
+<svg width="2000" height="1900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B9D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C44569;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rosGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22A7F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1A5276;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="manualGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6C3A7C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="perceptionGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6C3A7C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="planningGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E67E22;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BA4A00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="controlGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E8449;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="halGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="ecuGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#34495e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#5D6D7E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34495e;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="shadow">
+      <feDropShadow dx="3" dy="3" stdDeviation="4" flood-opacity="0.5"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Arrow markers -->
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="12" refY="5" orient="auto">
+      <polygon points="0 0, 14 5, 0 10" fill="#ffffff" />
+    </marker>
+    <marker id="arrowAI" markerWidth="14" markerHeight="14" refX="12" refY="5" orient="auto">
+      <polygon points="0 0, 14 5, 0 10" fill="#FF6B9D" />
+    </marker>
+    <marker id="arrowManual" markerWidth="14" markerHeight="14" refX="12" refY="5" orient="auto">
+      <polygon points="0 0, 14 5, 0 10" fill="#9B59B6" />
+    </marker>
+    <marker id="arrowGreen" markerWidth="14" markerHeight="14" refX="12" refY="5" orient="auto">
+      <polygon points="0 0, 14 5, 0 10" fill="#27AE60" />
+    </marker>
+    <marker id="arrowBlue" markerWidth="14" markerHeight="14" refX="12" refY="5" orient="auto">
+      <polygon points="0 0, 14 5, 0 10" fill="#22A7F0" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="2000" height="1900" fill="#0a0a15"/>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a1a2e" stroke-width="0.5"/>
+  </pattern>
+  <rect width="2000" height="1900" fill="url(#grid)"/>
+  
+  <!-- Title -->
+  <g filter="url(#glow)">
+    <text x="1000" y="50" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      🤖 Tri-Mode Autonomous Car Software Architecture
+    </text>
+  </g>
+  <text x="1000" y="85" font-family="Arial, sans-serif" font-size="16" fill="#888888" text-anchor="middle">
+    AI Intelligence | Traditional ROS2 Logic | Manual Remote Control - Choose Your Mode
+  </text>
+  
+  <!-- ECU Distribution Header -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="120" width="550" height="50" rx="8" fill="url(#ecuGrad)" stroke="#FFD700" stroke-width="3"/>
+    <text x="375" y="152" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFD700" text-anchor="middle">
+      🖥️ ECU 1: RASPBERRY PI 4 (8GB)
+    </text>
+  </g>
+  
+  <g filter="url(#shadow)">
+    <rect x="700" y="120" width="550" height="50" rx="8" fill="url(#ecuGrad)" stroke="#FFD700" stroke-width="3"/>
+    <text x="975" y="152" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFD700" text-anchor="middle">
+      ⚙️ ECU 2: ARDUINO MEGA 2560
+    </text>
+  </g>
+  
+  <g filter="url(#shadow)">
+    <rect x="1300" y="120" width="550" height="50" rx="8" fill="url(#ecuGrad)" stroke="#3498DB" stroke-width="3"/>
+    <text x="1575" y="152" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#3498DB" text-anchor="middle">
+      📡 ECU 3: ESP32 (WiFi/BLE)
+    </text>
+  </g>
+  
+  <!-- Spacing indicator -->
+  <text x="100" y="195" font-family="Arial, sans-serif" font-size="11" fill="#666" font-style="italic">
+    Main Computing | AI/ROS2 | Perception
+  </text>
+  <text x="700" y="195" font-family="Arial, sans-serif" font-size="11" fill="#666" font-style="italic">
+    Motor Control | Sensors | Safety Critical
+  </text>
+  <text x="1300" y="195" font-family="Arial, sans-serif" font-size="11" fill="#666" font-style="italic">
+    Remote Control | Manual Mode | Telemetry
+  </text>
+  
+  <!-- LAYER 0: CONTROL MODE SELECTOR (TOP) -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="230" width="1750" height="180" rx="12" fill="#1a1a2e" stroke="#FFD700" stroke-width="4"/>
+    <text x="975" y="270" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#FFD700" text-anchor="middle">
+      ⚡ CONTROL MODE SELECTOR - Tri-Mode Architecture
+    </text>
+    <line x1="130" y1="290" x2="1820" y2="290" stroke="#FFD700" stroke-width="1.5" opacity="0.4"/>
+    
+    <!-- Mode 1: AI -->
+    <g transform="translate(130, 310)">
+      <rect width="440" height="80" rx="10" fill="#FF6B9D" stroke="#ffffff" stroke-width="3">
+        <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+      </rect>
+      <text x="220" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+        🤖 MODE 1: AI CONTROL
+      </text>
+      <text x="220" y="53" font-family="Arial, sans-serif" font-size="13" fill="#ffffff" text-anchor="middle">
+        API-Based Intelligence
+      </text>
+      <text x="220" y="70" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">
+        Claude/GPT-4 Decision Making
+      </text>
+    </g>
+    
+    <text x="650" y="355" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      ⟷ OR ⟷
+    </text>
+    
+    <!-- Mode 2: ROS2 -->
+    <g transform="translate(735, 310)">
+      <rect width="440" height="80" rx="10" fill="#22A7F0" stroke="#ffffff" stroke-width="3">
+        <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" begin="0.7s"/>
+      </rect>
+      <text x="220" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+        🔧 MODE 2: ROS2 LOGIC
+      </text>
+      <text x="220" y="53" font-family="Arial, sans-serif" font-size="13" fill="#ffffff" text-anchor="middle">
+        Traditional Autonomous Stack
+      </text>
+      <text x="220" y="70" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">
+        Perception → Planning → Control
+      </text>
+    </g>
+    
+    <text x="1255" y="355" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      ⟷ OR ⟷
+    </text>
+    
+    <!-- Mode 3: Manual -->
+    <g transform="translate(1340, 310)">
+      <rect width="440" height="80" rx="10" fill="#9B59B6" stroke="#ffffff" stroke-width="3">
+        <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" begin="1.4s"/>
+      </rect>
+      <text x="220" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+        🎮 MODE 3: MANUAL CONTROL
+      </text>
+      <text x="220" y="53" font-family="Arial, sans-serif" font-size="13" fill="#ffffff" text-anchor="middle">
+        Direct Human Control
+      </text>
+      <text x="220" y="70" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">
+        Web App | Mobile | Joystick via ESP32
+      </text>
+    </g>
+  </g>
+  
+  <!-- LARGE SPACING -->
+  <line x1="100" y1="440" x2="1850" y2="440" stroke="#333" stroke-width="1" stroke-dasharray="10,10" opacity="0.3"/>
+  
+  <!-- AI CONTROL PATH (LEFT) -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="490" width="500" height="520" rx="12" fill="url(#aiGrad)" stroke="#ffffff" stroke-width="3"/>
+    <text x="350" y="530" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      🧠 AI CONTROL
+    </text>
+    <line x1="130" y1="550" x2="570" y2="550" stroke="#ffffff" stroke-width="1.5" opacity="0.4"/>
+    
+    <!-- AI Orchestrator -->
+    <g transform="translate(130, 570)">
+      <rect width="440" height="110" rx="10" fill="#2c3e50" stroke="#FF6B9D" stroke-width="3"/>
+      <text x="220" y="30" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#ffffff" text-anchor="middle">
+        ai_orchestrator_node 🎯
+      </text>
+      <text x="220" y="52" font-family="Arial, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle">
+        Inputs: /scan, /image, /imu, /odom
+      </text>
+      <text x="220" y="70" font-family="Arial, sans-serif" font-size="12" fill="#FFD700" text-anchor="middle">
+        AI API: Claude-3.5 / GPT-4o
+      </text>
+      <text x="220" y="88" font-family="Arial, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle">
+        Outputs: /cmd_vel, /steering_angle
+      </text>
+      <text x="220" y="103" font-family="Arial, sans-serif" font-size="10" fill="#888" text-anchor="middle">
+        📍 ECU: Raspberry Pi 4 | 🟢 M1
+      </text>
+    </g>
+    
+    <!-- AI Sub-modules -->
+    <g transform="translate(130, 700)">
+      <rect width="205" height="95" rx="8" fill="#34495e" stroke="#FF6B9D" stroke-width="2"/>
+      <text x="102" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">
+        ai_vision 📸
+      </text>
+      <text x="102" y="45" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle">
+        Scene analysis
+      </text>
+      <text x="102" y="61" font-family="Arial, sans-serif" font-size="11" fill="#FFD700" text-anchor="middle">
+        Vision API
+      </text>
+      <text x="102" y="77" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle">
+        Object detect
+      </text>
+      <text x="102" y="90" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">
+        📍 RPi4 | 🟡 M2
+      </text>
+    </g>
+    
+    <g transform="translate(365, 700)">
+      <rect width="205" height="95" rx="8" fill="#34495e" stroke="#FF6B9D" stroke-width="2"/>
+      <text x="102" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">
+        ai_context 💭
+      </text>
+      <text x="102" y="45" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle">
+        Mission state
+      </text>
+      <text x="102" y="61" font-family="Arial, sans-serif" font-size="11" fill="#FFD700" text-anchor="middle">
+        Memory
+      </text>
+      <text x="102" y="77" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle">
+        Vector DB
+      </text>
+      <text x="102" y="90" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">
+        📍 RPi4 | 🟡 M3
+      </text>
+    </g>
+    
+    <g transform="translate(130, 815)">
+      <rect width="205" height="95" rx="8" fill="#34495e" stroke="#E74C3C" stroke-width="2.5"/>
+      <text x="102" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#E74C3C" text-anchor="middle">
+        ai_error 🚨
+      </text>
+      <text x="102" y="45" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle">
+        API failures
+      </text>
+      <text x="102" y="61" font-family="Arial, sans-serif" font-size="11" fill="#FFD700" text-anchor="middle">
+        Fallback
+      </text>
+      <text x="102" y="77" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle">
+        Retry logic
+      </text>
+      <text x="102" y="90" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">
+        📍 RPi4 | 🟢 M1
+      </text>
+    </g>
+    
+    <g transform="translate(365, 815)">
+      <rect width="205" height="95" rx="8" fill="#34495e" stroke="#FF6B9D" stroke-width="2"/>
+      <text x="102" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">
+        ai_optimizer ⚡
+      </text>
+      <text x="102" y="45" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle">
+        Performance
+      </text>
+      <text x="102" y="61" font-family="Arial, sans-serif" font-size="11" fill="#FFD700" text-anchor="middle">
+        Tuning
+      </text>
+      <text x="102" y="77" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle">
+        Caching
+      </text>
+      <text x="102" y="90" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">
+        📍 RPi4 | 🔴 M4
+      </text>
+    </g>
+    
+    <!-- Stubbed note -->
+    <g transform="translate(130, 930)">
+      <rect width="440" height="60" rx="8" fill="#1a1a2e" stroke="#FFD700" stroke-width="2" stroke-dasharray="8,8"/>
+      <text x="220" y="22" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#FFD700" text-anchor="middle">
+        ⚠️ MODULAR - ATOMIC OPERATION
+      </text>
+      <text x="220" y="40" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle">
+        Missing modules → Placeholder active
+      </text>
+      <text x="220" y="54" font-family="Arial, sans-serif" font-size="11" fill="#27AE60" text-anchor="middle">
+        ✅ Core orchestrator always functional
+      </text>
+    </g>
+  </g>
+  
+  <!-- CONVENTIONAL ROS2 PATH (MIDDLE) -->
+  <g filter="url(#shadow)">
+    <rect x="650" y="490" width="700" height="520" rx="12" fill="#16213e" stroke="#ffffff" stroke-width="3"/>
+    <text x="1000" y="530" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#22A7F0" text-anchor="middle">
+      🔧 ROS2 LOGIC STACK
+    </text>
+    <line x1="680" y1="550" x2="1320" y2="550" stroke="#22A7F0" stroke-width="1.5" opacity="0.4"/>
+    
+    <!-- PERCEPTION Column -->
+    <g>
+      <rect x="680" y="575" width="300" height="415" rx="10" fill="url(#perceptionGrad)" stroke="#ffffff" stroke-width="2"/>
+      <text x="830" y="605" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">
+        PERCEPTION
+      </text>
+      <line x1="700" y1="615" x2="960" y2="615" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+      
+      <g transform="translate(710, 630)">
+        <rect width="130" height="60" rx="6" fill="#2c3e50" stroke="#9B59B6" stroke-width="2"/>
+        <text x="65" y="18" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">slam_toolbox</text>
+        <text x="65" y="33" font-family="Arial, sans-serif" font-size="8" fill="#e0e0e0" text-anchor="middle">Mapping</text>
+        <text x="65" y="45" font-family="Arial, sans-serif" font-size="8" fill="#FFD700" text-anchor="middle">Graph SLAM</text>
+        <text x="65" y="56" font-family="Arial, sans-serif" font-size="7" fill="#888" text-anchor="middle">📍 RPi4 | 🟡 M2</text>
+      </g>
+      
+      <g transform="translate(850, 630)">
+        <rect width="100" height="60" rx="6" fill="#2c3e50" stroke="#9B59B6" stroke-width="2"/>
+        <text x="50" y="18" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">amcl</text>
+        <text x="50" y="33" font-family="Arial, sans-serif" font-size="8" fill="#e0e0e0" text-anchor="middle">Localiz</text>
+        <text x="50" y="45" font-family="Arial, sans-serif" font-size="8" fill="#FFD700" text-anchor="middle">MCL</text>
+        <text x="50" y="56" font-family="Arial, sans-serif" font-size="7" fill="#888" text-anchor="middle">📍 RPi4 | 🟡 M2</text>
+      </g>
+      
+      <g transform="translate(710, 705)">
+        <rect width="240" height="60" rx="6" fill="#2c3e50" stroke="#9B59B6" stroke-width="2"/>
+        <text x="120" y="18" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">robot_localization</text>
+        <text x="120" y="33" font-family="Arial, sans-serif" font-size="8" fill="#e0e0e0" text-anchor="middle">Sensor fusion (EKF)</text>
+        <text x="120" y="45" font-family="Arial, sans-serif" font-size="8" fill="#FFD700" text-anchor="middle">/odom + /imu</text>
+        <text x="120" y="56" font-family="Arial, sans-serif" font-size="7" fill="#888" text-anchor="middle">📍 RPi4 | 🟢 M1</text>
+      </g>
+      
+      <g transform="translate(710, 780)">
+        <rect width="75" height="60" rx="6" fill="#2c3e50" stroke="#9B59B6" stroke-width="2"/>
+        <text x="37" y="16" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">vision</text>
+        <text x="37" y="30" font-family="Arial, sans-serif" font-size="7" fill="#e0e0e0" text-anchor="middle">YOLO</text>
+        <text x="37" y="42" font-family="Arial, sans-serif" font-size="7" fill="#FFD700" text-anchor="middle">Objects</text>
+        <text x="37" y="54" font-family="Arial, sans-serif" font-size="6" fill="#888" text-anchor="middle">📍 RPi4 | 🟡 M3</text>
+      </g>
+      
+      <g transform="translate(795, 780)">
+        <rect width="75" height="60" rx="6" fill="#2c3e50" stroke="#9B59B6" stroke-width="2"/>
+        <text x="37" y="16" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">lanes</text>
+        <text x="37" y="30" font-family="Arial, sans-serif" font-size="7" fill="#e0e0e0" text-anchor="middle">Hough</text>
+        <text x="37" y="42" font-family="Arial, sans-serif" font-size="7" fill="#FFD700" text-anchor="middle">Lines</text>
+        <text x="37" y="54" font-family="Arial, sans-serif" font-size="6" fill="#888" text-anchor="middle">📍 RPi4 | 🔴 M4</text>
+      </g>
+      
+      <g transform="translate(880, 780)">
+        <rect width="70" height="60" rx="6" fill="#2c3e50" stroke="#9B59B6" stroke-width="2"/>
+        <text x="35" y="16" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">obst</text>
+        <text x="35" y="30" font-family="Arial, sans-serif" font-size="7" fill="#e0e0e0" text-anchor="middle">Clust</text>
+        <text x="35" y="42" font-family="Arial, sans-serif" font-size="7" fill="#FFD700" text-anchor="middle">/obs</text>
+        <text x="35" y="54" font-family="Arial, sans-serif" font-size="6" fill="#888" text-anchor="middle">📍 RPi4 | 🟢 M1</text>
+      </g>
+      
+      <g transform="translate(710, 855)">
+        <rect width="240" height="115" rx="6" fill="#1a1a2e" stroke="#9B59B6" stroke-width="1" opacity="0.95"/>
+        <text x="120" y="18" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#9B59B6" text-anchor="middle">
+          💡 Why Together?
+        </text>
+        <text x="120" y="35" font-family="Arial, sans-serif" font-size="8" fill="#e0e0e0" text-anchor="middle">
+          • SLAM = Map + Localize
+        </text>
+        <text x="120" y="49" font-family="Arial, sans-serif" font-size="8" fill="#e0e0e0" text-anchor="middle">
+          • Vision + LIDAR synergy
+        </text>
+        <text x="120" y="63" font-family="Arial, sans-serif" font-size="8" fill="#e0e0e0" text-anchor="middle">
+          • Different rates:
+        </text>
+        <text x="120" y="77" font-family="Arial, sans-serif" font-size="8" fill="#e0e0e0" text-anchor="middle">
+          LIDAR 10Hz, Vision 5Hz
+        </text>
+        <text x="120" y="91" font-family="Arial, sans-serif" font-size="8" fill="#e0e0e0" text-anchor="middle">
+          Fusion 50Hz
+        </text>
+        <text x="120" y="107" font-family="Arial, sans-serif" font-size="7" fill="#888" text-anchor="middle">
+          All run on RPi4
+        </text>
+      </g>
+    </g>
+    
+    <!-- PLANNING & CONTROL Column -->
+    <g>
+      <rect x="1010" y="575" width="310" height="415" rx="10" fill="url(#planningGrad)" stroke="#ffffff" stroke-width="2"/>
+      <text x="1165" y="605" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">
+        PLANNING &amp; CONTROL
+      </text>
+      <line x1="1030" y1="615" x2="1300" y2="615" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+      
+      <g transform="translate(1040, 630)">
+        <rect width="120" height="60" rx="6" fill="#2c3e50" stroke="#E67E22" stroke-width="2"/>
+        <text x="60" y="18" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">global_plan</text>
+        <text x="60" y="33" font-family="Arial, sans-serif" font-size="8" fill="#e0e0e0" text-anchor="middle">A* / Dijkstra</text>
+        <text x="60" y="45" font-family="Arial, sans-serif" font-size="8" fill="#FFD700" text-anchor="middle">/path</text>
+        <text x="60" y="56" font-family="Arial, sans-serif" font-size="7" fill="#888" text-anchor="middle">📍 RPi4 | 🟡 M2</text>
+      </g>
+      
+      <g transform="translate(1170, 630)">
+        <rect width="120" height="60" rx="6" fill="#2c3e50" stroke="#E67E22" stroke-width="2"/>
+        <text x="60" y="18" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">local_plan</text>
+        <text x="60" y="33" font-family="Arial, sans-serif" font-size="8" fill="#e0e0e0" text-anchor="middle">DWA / TEB</text>
+        <text x="60" y="45" font-family="Arial, sans-serif" font-size="8" fill="#FFD700" text-anchor="middle">Dynamic</text>
+        <text x="60" y="56" font-family="Arial, sans-serif" font-size="7" fill="#888" text-anchor="middle">📍 RPi4 | 🟡 M2</text>
+      </g>
+      
+      <g transform="translate(1040, 705)">
+        <rect width="250" height="60" rx="6" fill="#2c3e50" stroke="#E67E22" stroke-width="2"/>
+        <text x="125" y="18" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">costmap_2d</text>
+        <text x="125" y="33" font-family="Arial, sans-serif" font-size="8" fill="#e0e0e0" text-anchor="middle">In: /map, /scan, /obs</text>
+        <text x="125" y="45" font-family="Arial, sans-serif" font-size="8" fill="#FFD700" text-anchor="middle">Layered costmaps</text>
+        <text x="125" y="56" font-family="Arial, sans-serif" font-size="7" fill="#888" text-anchor="middle">📍 RPi4 | 🟢 M1</text>
+      </g>
+      
+      <g transform="translate(1040, 780)">
+        <rect width="120" height="60" rx="6" fill="#2c3e50" stroke="#27AE60" stroke-width="2"/>
+        <text x="60" y="18" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">path_follow</text>
+        <text x="60" y="33" font-family="Arial, sans-serif" font-size="8" fill="#e0e0e0" text-anchor="middle">Pure Pursuit</text>
+        <text x="60" y="45" font-family="Arial, sans-serif" font-size="8" fill="#FFD700" text-anchor="middle">Track path</text>
+        <text x="60" y="56" font-family="Arial, sans-serif" font-size="7" fill="#888" text-anchor="middle">📍 RPi4 | 🟢 M1</text>
+      </g>
+      
+      <g transform="translate(1170, 780)">
+        <rect width="120" height="60" rx="6" fill="#2c3e50" stroke="#27AE60" stroke-width="2"/>
+        <text x="60" y="18" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">velocity_ctrl</text>
+        <text x="60" y="33" font-family="Arial, sans-serif" font-size="8" fill="#e0e0e0" text-anchor="middle">PID @ 50Hz</text>
+        <text x="60" y="45" font-family="Arial, sans-serif" font-size="8" fill="#FFD700" text-anchor="middle">Motor ctrl</text>
+        <text x="60" y="56" font-family="Arial, sans-serif" font-size="7" fill="#888" text-anchor="middle">📍 Arduino | 🟢 M1</text>
+      </g>
+      
+      <g transform="translate(1040, 855)">
+        <rect width="250" height="60" rx="6" fill="#2c3e50" stroke="#E74C3C" stroke-width="3"/>
+        <text x="125" y="18" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#E74C3C" text-anchor="middle">safety_monitor</text>
+        <text x="125" y="33" font-family="Arial, sans-serif" font-size="8" fill="#e0e0e0" text-anchor="middle">Monitors: obstacles, battery, tilt</text>
+        <text x="125" y="45" font-family="Arial, sans-serif" font-size="8" fill="#FFD700" text-anchor="middle">Independent watchdog @ 100Hz</text>
+        <text x="125" y="56" font-family="Arial, sans-serif" font-size="7" fill="#888" text-anchor="middle">📍 Arduino | 🟢 M1 - CRITICAL</text>
+      </g>
+      
+      <g transform="translate(1040, 930)">
+        <rect width="250" height="25" rx="4" fill="#27AE60" stroke="#ffffff" stroke-width="1.5"/>
+        <text x="125" y="17" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">
+          cmd_vel_mux → /cmd_vel (Safety &gt; Teleop &gt; Auto)
+        </text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- MANUAL CONTROL PATH (RIGHT) -->
+  <g filter="url(#shadow)">
+    <rect x="1400" y="490" width="450" height="520" rx="12" fill="url(#manualGrad)" stroke="#ffffff" stroke-width="3"/>
+    <text x="1625" y="530" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      🎮 MANUAL CONTROL
+    </text>
+    <line x1="1430" y1="550" x2="1820" y2="550" stroke="#ffffff" stroke-width="1.5" opacity="0.4"/>
+    
+    <!-- ESP32 Manual Interface -->
+    <g transform="translate(1430, 570)">
+      <rect width="390" height="120" rx="10" fill="#2c3e50" stroke="#9B59B6" stroke-width="3"/>
+      <text x="195" y="30" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#ffffff" text-anchor="middle">
+        esp32_manual_controller 🎮
+      </text>
+      <text x="195" y="52" font-family="Arial, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle">
+        Receives: Human input (WiFi/BLE)
+      </text>
+      <text x="195" y="70" font-family="Arial, sans-serif" font-size="12" fill="#FFD700" text-anchor="middle">
+        Translates: Input → /cmd_vel commands
+      </text>
+      <text x="195" y="88" font-family="Arial, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle">
+        Outputs: Direct motor control to Arduino
+      </text>
+      <text x="195" y="106" font-family="Arial, sans-serif" font-size="10" fill="#888" text-anchor="middle">
+        📍 ECU: ESP32 | Status: 🟢 MILESTONE 1
+      </text>
+    </g>
+    
+    <!-- Input Interfaces -->
+    <text x="1625" y="715" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFD700" text-anchor="middle">
+      INPUT INTERFACES
+    </text>
+    
+    <g transform="translate(1430, 730)">
+      <rect width="390" height="80" rx="8" fill="#34495e" stroke="#3498DB" stroke-width="2"/>
+      <text x="195" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3498DB" text-anchor="middle">
+        Web Application (Browser) 🌐
+      </text>
+      <text x="195" y="45" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle">
+        • Virtual joystick on touchscreen/mouse
+      </text>
+      <text x="195" y="61" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle">
+        • Speed slider, steering dial, mode switch
+      </text>
+      <text x="195" y="75" font-family="Arial, sans-serif" font-size="10" fill="#FFD700" text-anchor="middle">
+        Access: http://car.local | WebSocket real-time
+      </text>
+    </g>
+    
+    <g transform="translate(1430, 825)">
+      <rect width="390" height="80" rx="8" fill="#34495e" stroke="#3498DB" stroke-width="2"/>
+      <text x="195" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3498DB" text-anchor="middle">
+        Mobile App (Android/iOS) 📱
+      </text>
+      <text x="195" y="45" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle">
+        • Native app with accelerometer control
+      </text>
+      <text x="195" y="61" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle">
+        • Tilt phone to steer, swipe for speed
+      </text>
+      <text x="195" y="75" font-family="Arial, sans-serif" font-size="10" fill="#FFD700" text-anchor="middle">
+        Connection: BLE (Bluetooth Low Energy)
+      </text>
+    </g>
+    
+    <g transform="translate(1430, 920)">
+      <rect width="390" height="80" rx="8" fill="#34495e" stroke="#3498DB" stroke-width="2"/>
+      <text x="195" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3498DB" text-anchor="middle">
+        Physical Joystick / Gamepad 🕹️
+      </text>
+      <text x="195" y="45" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle">
+        • USB/Bluetooth gamepad (PS4/Xbox controller)
+      </text>
+      <text x="195" y="61" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle">
+        • Left stick: steering | Right trigger: throttle
+      </text>
+      <text x="195" y="75" font-family="Arial, sans-serif" font-size="10" fill="#FFD700" text-anchor="middle">
+        Best for: Precise control, low latency (&lt;10ms)
+      </text>
+    </g>
+  </g>
+  
+  <!-- LARGE SPACING -->
+  <line x1="100" y1="1040" x2="1850" y2="1040" stroke="#333" stroke-width="1" stroke-dasharray="10,10" opacity="0.3"/>
+  
+  <!-- HARDWARE ABSTRACTION LAYER -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="1090" width="1750" height="200" rx="12" fill="url(#halGrad)" stroke="#ffffff" stroke-width="3"/>
+    <text x="975" y="1130" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      🔌 HARDWARE ABSTRACTION LAYER (HAL) - Shared by ALL 3 Modes
+    </text>
+    <line x1="130" y1="1150" x2="1820" y2="1150" stroke="#ffffff" stroke-width="1.5" opacity="0.4"/>
+    
+    <!-- Sensor Inputs -->
+    <g transform="translate(130, 1170)">
+      <rect width="140" height="55" rx="5" fill="#34495e" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="70" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">lidar_driver</text>
+      <text x="70" y="35" font-family="Arial, sans-serif" font-size="9" fill="#FFD700" text-anchor="middle">/scan</text>
+      <text x="70" y="48" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">📍 RPi4 | 🟢 M1</text>
+    </g>
+    
+    <g transform="translate(290, 1170)">
+      <rect width="140" height="55" rx="5" fill="#34495e" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="70" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">camera_node</text>
+      <text x="70" y="35" font-family="Arial, sans-serif" font-size="9" fill="#FFD700" text-anchor="middle">/image_raw</text>
+      <text x="70" y="48" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">📍 RPi4 | 🟢 M1</text>
+    </g>
+    
+    <g transform="translate(450, 1170)">
+      <rect width="140" height="55" rx="5" fill="#34495e" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="70" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">imu_driver</text>
+      <text x="70" y="35" font-family="Arial, sans-serif" font-size="9" fill="#FFD700" text-anchor="middle">/imu/data</text>
+      <text x="70" y="48" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">📍 Arduino | 🟢 M1</text>
+    </g>
+    
+    <g transform="translate(610, 1170)">
+      <rect width="140" height="55" rx="5" fill="#34495e" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="70" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">encoder_node</text>
+      <text x="70" y="35" font-family="Arial, sans-serif" font-size="9" fill="#FFD700" text-anchor="middle">/wheel_odom</text>
+      <text x="70" y="48" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">📍 Arduino | 🟢 M1</text>
+    </g>
+    
+    <g transform="translate(770, 1170)">
+      <rect width="140" height="55" rx="5" fill="#34495e" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="70" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">ultrasonic</text>
+      <text x="70" y="35" font-family="Arial, sans-serif" font-size="9" fill="#FFD700" text-anchor="middle">/ranges</text>
+      <text x="70" y="48" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">📍 Arduino | 🟢 M1</text>
+    </g>
+    
+    <g transform="translate(930, 1170)">
+      <rect width="140" height="55" rx="5" fill="#34495e" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="70" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">battery_mon</text>
+      <text x="70" y="35" font-family="Arial, sans-serif" font-size="9" fill="#FFD700" text-anchor="middle">/battery</text>
+      <text x="70" y="48" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">📍 Arduino | 🟢 M1</text>
+    </g>
+    
+    <!-- Actuator Outputs -->
+    <g transform="translate(1090, 1170)">
+      <rect width="180" height="55" rx="5" fill="#34495e" stroke="#E74C3C" stroke-width="2"/>
+      <text x="90" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">motor_controller</text>
+      <text x="90" y="35" font-family="Arial, sans-serif" font-size="9" fill="#FFD700" text-anchor="middle">Sub: /cmd_vel</text>
+      <text x="90" y="48" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">📍 Arduino Mega | 🟢 M1</text>
+    </g>
+    
+    <g transform="translate(1290, 1170)">
+      <rect width="180" height="55" rx="5" fill="#34495e" stroke="#E74C3C" stroke-width="2"/>
+      <text x="90" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">servo_controller</text>
+      <text x="90" y="35" font-family="Arial, sans-serif" font-size="9" fill="#FFD700" text-anchor="middle">Sub: /steering</text>
+      <text x="90" y="48" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">📍 Arduino Mega | 🟢 M1</text>
+    </g>
+    
+    <g transform="translate(1490, 1170)">
+      <rect width="180" height="55" rx="5" fill="#34495e" stroke="#E74C3C" stroke-width="3"/>
+      <text x="90" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#E74C3C" text-anchor="middle">e_stop_node</text>
+      <text x="90" y="35" font-family="Arial, sans-serif" font-size="9" fill="#E74C3C" text-anchor="middle">Kill Switch</text>
+      <text x="90" y="48" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">📍 Arduino | 🟢 M1</text>
+    </g>
+    
+    <g transform="translate(1690, 1170)">
+      <rect width="140" height="55" rx="5" fill="#34495e" stroke="#3498DB" stroke-width="2"/>
+      <text x="70" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3498DB" text-anchor="middle">telemetry</text>
+      <text x="70" y="35" font-family="Arial, sans-serif" font-size="9" fill="#FFD700" text-anchor="middle">WiFi/BLE</text>
+      <text x="70" y="48" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">📍 ESP32 | 🟡 M2</text>
+    </g>
+    
+    <g transform="translate(130, 1240)">
+      <rect width="1700" height="30" rx="5" fill="#1a1a2e" stroke="#FFD700" stroke-width="1.5"/>
+      <text x="850" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">
+        💡 HAL unified interface: AI reads raw data | ROS2 uses topics | Manual bypasses all processing | All atomic &amp; independent
+      </text>
+    </g>
+  </g>
+  
+  <!-- LARGE SPACING -->
+  <line x1="100" y1="1320" x2="1850" y2="1320" stroke="#333" stroke-width="1" stroke-dasharray="10,10" opacity="0.3"/>
+  
+  <!-- COMMUNICATION LAYER -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="1370" width="1750" height="110" rx="12" fill="#1a1a2e" stroke="#22A7F0" stroke-width="3"/>
+    <text x="975" y="1410" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#22A7F0" text-anchor="middle">
+      🌐 INTER-ECU COMMUNICATION
+    </text>
+    <line x1="130" y1="1425" x2="1820" y2="1425" stroke="#22A7F0" stroke-width="1.5" opacity="0.4"/>
+    
+    <g transform="translate(180, 1440)">
+      <text x="0" y="17" font-family="Arial, sans-serif" font-size="13" fill="#ffffff" font-weight="bold">
+        RPi4 ↔ Arduino Mega:
+      </text>
+      <text x="0" y="35" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">
+        Serial UART (115200 baud) | Custom binary protocol
+      </text>
+    </g>
+    
+    <g transform="translate(680, 1440)">
+      <text x="0" y="17" font-family="Arial, sans-serif" font-size="13" fill="#ffffff" font-weight="bold">
+        RPi4 ↔ ESP32:
+      </text>
+      <text x="0" y="35" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">
+        WiFi (WebSocket) | Telemetry &amp; remote control
+      </text>
+    </g>
+    
+    <g transform="translate(1180, 1440)">
+      <text x="0" y="17" font-family="Arial, sans-serif" font-size="13" fill="#ffffff" font-weight="bold">
+        Arduino ↔ ESP32:
+      </text>
+      <text x="0" y="35" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">
+        I2C / Serial | Manual control passthrough
+      </text>
+    </g>
+  </g>
+  
+  <!-- BOTTOM INFO BOXES -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="1510" width="850" height="140" rx="8" fill="#1a1a2e" stroke="#FFD700" stroke-width="2"/>
+    <text x="525" y="1540" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#FFD700" text-anchor="middle">
+      📋 MILESTONE STATUS
+    </text>
+    <g transform="translate(150, 1555)">
+      <circle cx="10" cy="10" r="8" fill="#27AE60"/>
+      <text x="25" y="15" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">
+        🟢 M1 - Core (HAL, Safety, Basic AI/ROS2/Manual)
+      </text>
+    </g>
+    <g transform="translate(150, 1580)">
+      <circle cx="10" cy="10" r="8" fill="#F39C12"/>
+      <text x="25" y="15" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">
+        🟡 M2/M3 - Enhanced (SLAM, Vision, Planning, Mobile App)
+      </text>
+    </g>
+    <g transform="translate(150, 1605)">
+      <circle cx="10" cy="10" r="8" fill="#E74C3C"/>
+      <text x="25" y="15" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">
+        🔴 M4+ - Future (Lane detection, AI tuning, Advanced UI)
+      </text>
+    </g>
+    <g transform="translate(150, 1630)">
+      <rect x="3" y="3" width="14" height="14" fill="none" stroke="#FFD700" stroke-width="2" stroke-dasharray="3,3"/>
+      <text x="25" y="15" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">
+        ⚠️ Stubbed - Placeholder implementation available
+      </text>
+    </g>
+  </g>
+  
+  <g filter="url(#shadow)">
+    <rect x="1000" y="1510" width="850" height="140" rx="8" fill="#1a1a2e" stroke="#27AE60" stroke-width="2"/>
+    <text x="1425" y="1540" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#27AE60" text-anchor="middle">
+      ✅ KEY PRINCIPLES
+    </text>
+    <g transform="translate(1040, 1550)">
+      <text x="0" y="15" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">
+        ✓ Tri-Mode: AI API | ROS2 Logic | Manual Control - runtime selectable
+      </text>
+      <text x="0" y="32" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">
+        ✓ Modularity: Each node atomic, can be stubbed without breaking system
+      </text>
+      <text x="0" y="49" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">
+        ✓ 3-ECU Distribution: RPi4 (AI/ROS2), Arduino (control), ESP32 (manual/remote)
+      </text>
+      <text x="0" y="66" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">
+        ✓ Safety-First: Independent watchdog, hardware E-stop, all modes monitored
+      </text>
+      <text x="0" y="83" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">
+        ✓ Flexibility: Switch modes on-the-fly via web/app interface
+      </text>
+      <text x="0" y="100" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">
+        ✓ User Control: Full manual override available at all times
+      </text>
+    </g>
+  </g>
+  
+  <!-- ANIMATED DATA FLOW ARROWS WITH INCREASED SPACING -->
+  <!-- Mode selector to AI -->
+  <path d="M 390 410 L 350 490" stroke="#FF6B9D" stroke-width="5" fill="none" marker-end="url(#arrowAI)" stroke-dasharray="12,12">
+    <animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Mode selector to ROS2 -->
+  <path d="M 1130 410 L 1000 490" stroke="#22A7F0" stroke-width="5" fill="none" marker-end="url(#arrowBlue)" stroke-dasharray="12,12">
+    <animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+  </path>
+  
+  <!-- Mode selector to Manual -->
+  <path d="M 1460 410 L 1625 490" stroke="#9B59B6" stroke-width="5" fill="none" marker-end="url(#arrowManual)" stroke-dasharray="12,12">
+    <animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.5s" repeatCount="indefinite" begin="1s"/>
+  </path>
+  
+  <!-- AI to HAL -->
+  <path d="M 350 1010 L 350 1090" stroke="#FF6B9D" stroke-width="5" fill="none" marker-end="url(#arrow)" stroke-dasharray="12,12">
+    <animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- ROS2 to HAL -->
+  <path d="M 1000 1010 L 1000 1090" stroke="#22A7F0" stroke-width="5" fill="none" marker-end="url(#arrow)" stroke-dasharray="12,12">
+    <animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+  </path>
+  
+  <!-- Manual to HAL -->
+  <path d="M 1625 1010 L 1625 1090" stroke="#9B59B6" stroke-width="5" fill="none" marker-end="url(#arrow)" stroke-dasharray="12,12">
+    <animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.5s" repeatCount="indefinite" begin="1s"/>
+  </path>
+  
+  <!-- HAL to Communication -->
+  <path d="M 975 1290 L 975 1370" stroke="#E74C3C" stroke-width="5" fill="none" marker-end="url(#arrow)" stroke-dasharray="12,12">
+    <animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
+  </path>
+  
+  <!-- Feedback arrows -->
+  <path d="M 280 1090 Q 150 800 280 490" stroke="#27AE60" stroke-width="3" fill="none" marker-end="url(#arrowGreen)" stroke-dasharray="8,8" opacity="0.6">
+    <animate attributeName="stroke-dashoffset" from="0" to="-16" dur="2s" repeatCount="indefinite" begin="2s"/>
+  </path>
+  
+  <path d="M 1720 1090 Q 1800 800 1720 490" stroke="#27AE60" stroke-width="3" fill="none" marker-end="url(#arrowGreen)" stroke-dasharray="8,8" opacity="0.6">
+    <animate attributeName="stroke-dashoffset" from="0" to="-16" dur="2s" repeatCount="indefinite" begin="2.5s"/>
+  </path>
+  
+  <!-- Manual control labels -->
+  <text x="1650" y="1070" font-family="Arial, sans-serif" font-size="11" fill="#9B59B6" text-anchor="start" font-weight="bold">
+    Direct control bypass
+  </text>
+  
+</svg>
