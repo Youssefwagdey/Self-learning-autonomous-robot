@@ -2,7 +2,7 @@
 Self-learning robot using LiDAR and ESP32
 # Self-Learning Autonomous Robot
 
-## 📌 Project Idea
+## 📌 Project Idea 
 This project aims to build a small autonomous robot that can move and avoid obstacles using LiDAR and ultrasonic sensors.
 
 ## 🎯 Year 1 Goal
