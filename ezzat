@@ -1,0 +1,44 @@
+// : اول كود هيئة     (LIDAR) علي دبابيس 16 و 17 وعمل حلقه اتصال مع اردوينو ميجا
+ //((ESP32 DEV MODULE
+
+#define    LiDAR_RX 16
+  #define    LiDAR_TX 17
+    void setup () {
+        Serial.begin (115200);
+        Serial2.begin (115200,SERIAL_8N1, LiDAR_RX,LiDAR_TX);
+        Serial.println ("esp32 setup complete");
+
+    }
+    void loop(){
+        //ال core system  معتمد علي فريق الليدار 
+    }
+/*تاني كود هيئه المحركات وحساس الالتراسونيك وحلقه الاستقبال من ال   (ESP32)
+ARDUINO MEGA OR MEGA2560*/
+const int trigpin =7;
+  const int echopin =8;
+  const int IN1 = 5;
+  const int IN2 =4;
+  const int IN3 =3;
+  const int IN4 =2;
+   void setup(){
+    Serial.begin (112500);
+    pinMode(IN1, OUTPUT);
+    pinMode(IN2, OUTPUT);
+    pinMode(IN3, OUTPUT);
+    pinMode(IN4, OUTPUT);
+    stoprobot();
+    pinMode (trigpin, OUTPUT);
+    pinMode (echopin , INPUT);
+    digitalWrite (trigpin , LOW);
+    Serial.println("core system success");
+    Serial.println("motor safe  sensor ready ");
+   }
+         void stoprobot(){
+         digitalWrite(IN1,LOW);
+         digitalWrite(IN2,LOW);
+         digitalWrite(IN3,LOW);
+         digitalWrite(IN4,LOW);
+    Serial.println ("system check; motor set to low");
+    }   void loop (){}
+
+
